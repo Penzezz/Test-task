@@ -1,10 +1,6 @@
 	TASK 1:
 
 1. SELECT name, salary FROM employee WHERE salary = (SELECT max(salary) FROM employee);
-2. WITH RECURSIVE ChiefTree AS ( SELECT id, chief_id, 1 AS count FROM employee WHERE chief_id is NULL UNION ALL SELECT employee.id, employee.chief_id, ChiefTree.count + 1 FROM employee  JOIN ChiefTree ON employee.chief_id = ChiefTree.id) SELECT MAX(count) FROM ChiefTree;
+2. WITH RECURSIVE ChiefTree AS ( SELECT id, chief_id, 1 AS count FROM employee WHERE chief_id is NULL UNION ALL SELECT employee.id, employee.chief_id, ChiefTree.count + 	1 FROM employee  JOIN ChiefTree ON employee.chief_id = ChiefTree.id) SELECT MAX(count) FROM ChiefTree;
 3. SELECT department.name, salary FROM department join employee ON department.id = employee.dep_id GROUP BY employee.dep_id ORDER BY sum(salary) DESC LIMIT 1;
 4. SELECT name FROM employee WHERE name like 'Р%н';
-
-
-
-	TASK 2:
